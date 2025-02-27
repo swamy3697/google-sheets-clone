@@ -1,0 +1,173 @@
+.spreadsheet-grid {
+  display: grid;
+  grid-template-columns: 40px repeat(var(--column-count, 26), 100px);
+  grid-template-rows: 40px repeat(var(--row-count, 100), 30px);
+  background-color: #f8f9fa;
+  border: 1px solid #e1e1e1;
+  font-family: 'Roboto', Arial, sans-serif;
+  font-size: 14px;
+  overflow: auto;
+  height: calc(100vh - 120px);
+  position: relative;
+  color: #202124;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.corner-header {
+  grid-column: 1;
+  grid-row: 1;
+  background-color: #f1f3f4;
+  border-right: 1px solid #e1e1e1;
+  border-bottom: 1px solid #e1e1e1;
+  z-index: 10;
+  position: sticky;
+  top: 0;
+  left: 0;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.column-header-container {
+  display: contents;
+}
+
+.column-header {
+  background-color: #f1f3f4;
+  border-right: 1px solid #e1e1e1;
+  border-bottom: 1px solid #e1e1e1;
+  text-align: center;
+  padding: 8px 0;
+  font-weight: 500;
+  user-select: none;
+  cursor: pointer;
+  z-index: 5;
+  position: sticky;
+  top: 0;
+  color: #5f6368;
+  transition: background-color 0.1s ease;
+}
+
+.column-header.selected {
+  background-color: #e8f0fe; /* Google Sheets selection color */
+}
+
+.column-header:hover {
+  background-color: #e8eaed;
+}
+
+.row-header-container {
+  display: contents;
+}
+
+.row-header {
+  background-color: #f1f3f4;
+  border-right: 1px solid #e1e1e1;
+  border-bottom: 1px solid #e1e1e1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  user-select: none;
+  cursor: pointer;
+  z-index: 5;
+  position: sticky;
+  left: 0;
+  color: #5f6368;
+  transition: background-color 0.1s ease;
+}
+
+.row-header.selected {
+  background-color: #e8f0fe; /* Google Sheets selection color */
+}
+
+.row-header:hover {
+  background-color: #e8eaed;
+}
+
+.grid-body {
+  display: contents;
+}
+
+.grid-row {
+  display: contents;
+}
+
+/* Selection styling */
+.selection-box {
+  position: absolute;
+  border: 2px solid #4285F4;
+  background-color: rgba(66, 133, 244, 0.1);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Selection handle */
+.selection-handle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background-color: #4285F4;
+  right: -4px;
+  bottom: -4px;
+  cursor: crosshair;
+  z-index: 4;
+  border-radius: 50%;
+}
+
+/* Frozen row/column styling */
+.frozen-column, .frozen-row {
+  background-color: #f8f9fa;
+  z-index: 4;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.07);
+}
+
+/* Enhanced scrollbar styling */
+.spreadsheet-grid::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+.spreadsheet-grid::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 5px;
+}
+
+.spreadsheet-grid::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 5px;
+}
+
+.spreadsheet-grid::-webkit-scrollbar-thumb:hover {
+  background: #a1a1a1;
+}
+
+/* Accessibility improvements */
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+spreadsheet-grid {
+  display: grid;
+  grid-template-columns: 40px repeat(var(--column-count, 26), 100px);
+  grid-template-rows: 40px repeat(var(--row-count, 100), 30px);
+  /* other properties remain the same */
+}
+
+/* Column headers should be positioned in the first row */
+.column-header {
+  grid-row: 1;
+  /* The grid-column property should be set dynamically */
+  /* other properties remain the same */
+}
+
+/* Row headers should be positioned in the first column */
+.row-header {
+  grid-column: 1;
+  /* The grid-row property should be set dynamically */
+  /* other properties remain the same */
+}

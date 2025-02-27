@@ -1,0 +1,91 @@
+.cell {
+  border-right: 1px solid #e1e1e1;
+  border-bottom: 1px solid #e1e1e1;
+  padding: 4px 8px;
+  min-width: 100px;
+  height: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  position: relative;
+  background-color: white;
+  box-sizing: border-box;
+  outline: none;
+  transition: background-color 0.1s ease;
+  cursor: cell;
+  font-family: 'Roboto', Arial, sans-serif;
+  font-size: 14px;
+  color: #333;
+}
+
+.cell.active {
+  outline: 2px solid #4285F4;
+  z-index: 2;
+  box-shadow: 0 0 5px rgba(66, 133, 244, 0.4);
+}
+
+.cell.selected {
+  background-color: rgba(66, 133, 244, 0.1);
+}
+
+.cell.active.selected {
+  background-color: rgba(66, 133, 244, 0.15);
+}
+
+.cell-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+/* Enhanced input styling */
+.cell-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-width: 100px; /* Matches cell min-width */
+  height: 100%;
+  padding: 4px 8px;
+  border: none;
+  outline: 2px solid #4285F4;
+  box-sizing: border-box;
+  font-family: 'Roboto', Arial, sans-serif;
+  font-size: 14px;
+  z-index: 3;
+  background-color: white;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); /* Slightly stronger shadow */
+}
+
+/* Different cell types styling */
+.cell-number {
+  text-align: right;
+}
+
+.cell-text {
+  text-align: left;
+}
+
+.cell-date {
+  text-align: center;
+}
+
+.cell-boolean {
+  text-align: center;
+  font-weight: 500;
+}
+
+.cell-formula {
+  color: #0b5394;
+}
+
+.cell-error {
+  color: #d93025;
+  font-style: italic;
+}
+
+/* Hover effect */
+.cell:hover:not(.active) {
+  background-color: rgba(0, 0, 0, 0.02);
+}
